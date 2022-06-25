@@ -28,7 +28,6 @@ const Panda = ({ menuItem }: AppProp) => {
     setData(menuItem);
     return () => {};
   }, []);
-  console.log("panda");
   return (
     <UserLayout>
       <h1>panda</h1>
