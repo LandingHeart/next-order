@@ -1,0 +1,23 @@
+.header_container {
+  background-color: #fff;
+  box-shadow: 0px 4px 2px -2px #e1e1e1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.header_container__logout {
+  display: flex;
+}
+
+.header_logout__button {
+  margin-left: 3px;
+  color: #d2d2d2;
+  transition: all ease-in 0.3s;
+}
+.header_logout__button:hover {
+  color: #a9a9a9;
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.side_nav__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  line-height: 4rem;
+}
+.side_nav__list li {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.side_nav__listlink,
+.side_nav__listlink a {
+  text-decoration: none;
+  transition: all ease-in 1ms;
+  color: #a0aab8;
+}
+
+.side_nav__listlink:hover {
+  color: #f3f3f3;
+  cursor: pointer;
+}

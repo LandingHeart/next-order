@@ -1,0 +1,152 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "jon",
+      "account": "11123111",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 2,
+      "name": "jon",
+      "account": "1111511",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 3,
+      "name": "jon",
+      "account": "1111114",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 4,
+      "name": "jon",
+      "account": "1111112",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    }
+  ],
+  "menu": [
+    {
+      "id": 1,
+      "name": "chicken",
+      "account": "11123111",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 2,
+      "name": "beef",
+      "account": "1111511",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 3,
+      "name": "pork",
+      "account": "1111114",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 4,
+      "name": "shrimp",
+      "account": "1111112",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    }
+  ],
+  "combo": [
+    {
+      "id": 1,
+      "name": "chicken",
+      "account": "11123111",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 2,
+      "name": "beef",
+      "account": "1111511",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 3,
+      "name": "pork",
+      "account": "1111114",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 4,
+      "name": "shrimp",
+      "account": "1111112",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "chicken",
+      "account": "11123111",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 2,
+      "name": "beef",
+      "account": "1111511",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 3,
+      "name": "pork",
+      "account": "1111114",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 4,
+      "name": "shrimp",
+      "account": "1111112",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    }
+  ],
+  "invoice": [
+    {
+      "id": 1,
+      "name": "chicken",
+      "account": "11123111",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 2,
+      "name": "beef",
+      "account": "1111511",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 3,
+      "name": "pork",
+      "account": "1111114",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    },
+    {
+      "id": 4,
+      "name": "shrimp",
+      "account": "1111112",
+      "phonenumber": "Scottish Deerhound",
+      "status": "male"
+    }
+  ]
+}
