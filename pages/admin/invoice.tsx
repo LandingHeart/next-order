@@ -27,8 +27,7 @@ type AppProp = {
   }[];
 };
 const Invoice = ({ invoiceData }: AppProp) => {
-  const [data, setData] = useState([]);
-
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     setData(invoiceData);
     return () => {};

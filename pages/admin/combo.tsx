@@ -27,8 +27,7 @@ type AppProp = {
   }[];
 };
 const Combo = ({ comboData }: AppProp) => {
-  const [data, setData] = useState([]);
-
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     setData(comboData);
     return () => {};

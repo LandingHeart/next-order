@@ -27,8 +27,7 @@ type AppProp = {
   }[];
 };
 const Menu = ({ menuData }: AppProp) => {
-  const [data, setData] = useState([]);
-
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     setData(menuData);
     return () => {};

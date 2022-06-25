@@ -27,8 +27,7 @@ type AppProp = {
   }[];
 };
 const Employee = ({ employeeData }: AppProp) => {
-  const [data, setData] = useState([]);
-
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     setData(employeeData);
     return () => {};

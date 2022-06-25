@@ -23,7 +23,7 @@ type AppProp = {
   }[];
 };
 const Panda = ({ menuItem }: AppProp) => {
-  const [data, setData] = useState<AppProp[]>([]);
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     setData(menuItem);
     return () => {};

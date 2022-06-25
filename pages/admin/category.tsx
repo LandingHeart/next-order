@@ -27,8 +27,7 @@ type AppProp = {
   }[];
 };
 const Category = ({ categoryData }: AppProp) => {
-  const [data, setData] = useState([]);
-
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     setData(categoryData);
     return () => {};
