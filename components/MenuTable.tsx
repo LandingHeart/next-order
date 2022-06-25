@@ -6,7 +6,16 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import { Button } from "@mui/material";
-const MenuTable = ({ data }) => {
+type AppProp = {
+  data: {
+    id?: number;
+    name?: string;
+    account?: string;
+    phonenumber?: string;
+    status?: string;
+  }[];
+};
+const MenuTable = ({ data }: AppProp) => {
   return (
     <TableContainer component={Paper}>
       <Table>
