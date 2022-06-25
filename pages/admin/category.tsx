@@ -17,15 +17,16 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-interface Category {
-  id: number;
-  name: string;
-  account: string;
-  phonenumber: string;
-  status: string;
-}
-
-const Category = ({ categoryData }) => {
+type AppProp = {
+  categoryData: {
+    id?: number;
+    name?: string;
+    account?: string;
+    phonenumber?: string;
+    status?: string;
+  }[];
+};
+const Category = ({ categoryData }: AppProp) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {

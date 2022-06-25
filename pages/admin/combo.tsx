@@ -16,7 +16,17 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
-const Combo = ({ comboData }) => {
+
+type AppProp = {
+  comboData: {
+    id?: number;
+    name?: string;
+    account?: string;
+    phonenumber?: string;
+    status?: string;
+  }[];
+};
+const Combo = ({ comboData }: AppProp) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {

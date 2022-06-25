@@ -16,7 +16,17 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
-const Invoice = ({ invoiceData }) => {
+
+type AppProp = {
+  invoiceData: {
+    id?: number;
+    name?: string;
+    account?: string;
+    phonenumber?: string;
+    status?: string;
+  }[];
+};
+const Invoice = ({ invoiceData }: AppProp) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {

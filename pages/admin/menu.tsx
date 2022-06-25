@@ -17,7 +17,16 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
-const Menu = ({ menuData }) => {
+type AppProp = {
+  menuData: {
+    id?: number;
+    name?: string;
+    account?: string;
+    phonenumber?: string;
+    status?: string;
+  }[];
+};
+const Menu = ({ menuData }: AppProp) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
