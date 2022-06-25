@@ -28,8 +28,12 @@ const Panda = ({ menuItem }: AppProp) => {
     setData(menuItem);
     return () => {};
   }, []);
-
-  return <UserLayout></UserLayout>;
+  console.log("panda");
+  return (
+    <UserLayout>
+      <h1>panda</h1>
+    </UserLayout>
+  );
 };
 
 export default Panda;

@@ -5,8 +5,8 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const UserLayout: NextPage = ({ children }: Props) => {
-  return <section></section>;
+const UserLayout = ({ children }: Props) => {
+  return <section>{children}</section>;
 };
 
 export default UserLayout;

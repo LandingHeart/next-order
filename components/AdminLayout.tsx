@@ -7,7 +7,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const AdminLayout: NextPage = ({ children }: Props) => {
+const AdminLayout = ({ children }: Props) => {
   return (
     <section className={styles.main_content}>
       <section className={styles.sidemenu_container}>
