@@ -14,7 +14,6 @@ export const getStaticProp: GetStaticProps = async () => {
 };
 
 const Home: NextPage = ({ menuItem }) => {
-  console.log("sadf", menuItem);
   return <Panda />;
 };
 

@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState([]);
 
   const route = useRouter();
-  console.log(route.pathname);
   return <Component {...pageProps} />;
 }
 
