@@ -1,16 +1,14 @@
 import "../styles/globals.css";
+import { Provider } from "react-redux";
 import type { AppProps } from "next/app";
-import AdminLayout from "../components/AdminLayout";
-import Login from "../components/Login";
-import { useState } from "react";
+import { store } from "../store/store";
 
-import { useRouter } from "next/router";
-function MyApp({ Component, pageProps }: AppProps) {
-  const [admin, setAdmin] = useState([]);
-  const [user, setUser] = useState([]);
-
-  const route = useRouter();
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: AppProps, {}) {
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
 export default MyApp;

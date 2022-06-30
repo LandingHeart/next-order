@@ -1,8 +1,21 @@
 import type { NextPage } from "next";
-import Panda from "./store/panda";
-
+import AllStores from "../components/AllStores";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 const Home: NextPage = () => {
-  return <></>;
+  const router = useRouter();
+
+  useEffect(() => {
+    // console.log(admin);
+    return () => {};
+  });
+
+  return (
+    <>
+      <></>
+      <></>
+    </>
+  );
 };
 
 export default Home;
