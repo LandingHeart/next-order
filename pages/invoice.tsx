@@ -1,11 +1,11 @@
-import styles from "../../styles/employee.module.css";
-import { GetStaticProps } from "next";
+import styles from "../styles/employee.module.css";
+import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
-import Input from "../../components/Input";
-import InvoiceTable from "../../components/InvoiceTable";
-import AdminLayout from "../../components/AdminLayout";
+import Input from "../components/Input";
+import InvoiceTable from "../components/InvoiceTable";
+import AdminLayout from "../components/AdminLayout";
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
   const res = await fetch("http://localhost:3001/invoice");
   let invoiceData = await res.json();

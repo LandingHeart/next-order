@@ -6,16 +6,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import { Button } from "@mui/material";
-type AppProp = {
-  data: {
-    id?: number;
-    name?: string;
-    account?: string;
-    phonenumber?: string;
-    status?: string;
-  }[];
-};
-const MenuTable = ({ data }: AppProp) => {
+import { selectMenu } from "../store/menu.slice";
+import { useAppSelector } from "../store/hooks";
+
+const MenuTable = () => {
+  const { menu } = useAppSelector(selectMenu);
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -32,7 +27,7 @@ const MenuTable = ({ data }: AppProp) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((ele) => (
+          {menu.map((ele: any) => (
             <TableRow key={ele.id}>
               <TableCell align="left">
                 <input type="checkbox" />

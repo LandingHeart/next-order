@@ -1,15 +1,15 @@
-import styles from "../../styles/employee.module.css";
-import { useEffect, useState } from "react";
-import Input from "../../components/Input";
-import CategoryTable from "../../components/CategoryTable";
-import { GetStaticProps } from "next";
-import AdminLayout from "../../components/AdminLayout";
+import styles from "../styles/employee.module.css";
+import { useEffect } from "react";
+import Input from "../components/Input";
+import { GetServerSideProps } from "next";
+import AdminLayout from "../components/AdminLayout";
+import { useAppDispatch } from "../store/hooks";
+import { addAdmin } from "../store/admin.slice";
+import EmployeeTable from "../components/EmployeeTable";
 
-export const getStaticProps: GetStaticProps = async () => {
-  // Fetching data from jsonplaceholder.
+export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch("http://localhost:3001/employee");
   let employeeData = await res.json();
-  // Sending fetched data to the page component via props.
   return {
     props: {
       employeeData,
@@ -19,17 +19,18 @@ export const getStaticProps: GetStaticProps = async () => {
 
 type AppProp = {
   employeeData: {
-    id?: number;
-    name?: string;
-    account?: string;
-    phonenumber?: string;
-    status?: string;
+    id: number;
+    name: string;
+    account: string;
+    phonenumber: string;
+    status: string;
   }[];
 };
 const Employee = ({ employeeData }: AppProp) => {
-  const [data, setData] = useState<any[]>([]);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    setData(employeeData);
+    dispatch(addAdmin(Object(employeeData)));
     return () => {};
   }, []);
 
@@ -59,7 +60,7 @@ const Employee = ({ employeeData }: AppProp) => {
             +添加员工
           </button>
         </div>
-        {data && <CategoryTable data={data} />}
+        <EmployeeTable />
       </div>
     </AdminLayout>
   );

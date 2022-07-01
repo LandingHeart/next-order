@@ -2,31 +2,24 @@
   "employee": [
     {
       "id": 1,
-      "name": "jon",
-      "account": "11123111",
-      "phonenumber": "Scottish Deerhound",
-      "status": "male"
+      "name": "王海丽",
+      "account": "wanghaili",
+      "phonenumber": "15907984515",
+      "status": "正常"
     },
     {
       "id": 2,
-      "name": "jon",
-      "account": "1111511",
-      "phonenumber": "Scottish Deerhound",
-      "status": "male"
+      "name": "张依依",
+      "account": "zhangyiyi",
+      "phonenumber": "15901136987",
+      "status": "正常"
     },
     {
       "id": 3,
-      "name": "jon",
-      "account": "1111114",
-      "phonenumber": "Scottish Deerhound",
-      "status": "male"
-    },
-    {
-      "id": 4,
-      "name": "jon",
-      "account": "1111112",
-      "phonenumber": "Scottish Deerhound",
-      "status": "male"
+      "name": "管理员",
+      "account": "admin",
+      "phonenumber": "19812312312",
+      "status": "正常"
     }
   ],
   "menu": [

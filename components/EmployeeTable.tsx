@@ -5,17 +5,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
-import { Button } from "@mui/material";
-type AppProp = {
-  data: {
-    id?: number;
-    name?: string;
-    account?: string;
-    phonenumber?: string;
-    status?: string;
-  }[];
-};
-const EmployeeTable = ({ data }: AppProp) => {
+import Button from "./Button";
+import { selectAdmin } from "../store/admin.slice";
+import { useAppSelector } from "../store/hooks";
+
+const EmployeeTable = () => {
+  const { admin } = useAppSelector(selectAdmin);
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -24,20 +20,19 @@ const EmployeeTable = ({ data }: AppProp) => {
             <TableCell align="left">name</TableCell>
             <TableCell align="left">account</TableCell>
             <TableCell align="left">phonenumber</TableCell>
-            <TableCell align="left">account status</TableCell>
+            <TableCell align="center">account status</TableCell>
             <TableCell align="center">Edit</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((ele) => (
+          {admin.map((ele) => (
             <TableRow key={ele.id}>
               <TableCell align="left">{ele.name}</TableCell>
               <TableCell align="left">{ele.account}</TableCell>
               <TableCell align="left">{ele.phonenumber}</TableCell>
-              <TableCell align="left">{ele.status}</TableCell>
+              <TableCell align="center">{ele.status}</TableCell>
               <TableCell align="center">
-                <Button title="edit" />
-                <Button title="紧用" />
+                <Button />
               </TableCell>
             </TableRow>
           ))}

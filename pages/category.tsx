@@ -1,11 +1,11 @@
-import styles from "../../styles/employee.module.css";
+import styles from "../styles/employee.module.css";
 import { useEffect, useState } from "react";
-import Input from "../../components/Input";
-import CategoryTable from "../../components/CategoryTable";
-import { GetStaticProps } from "next";
-import AdminLayout from "../../components/AdminLayout";
+import Input from "../components/Input";
+import CategoryTable from "../components/CategoryTable";
+import { GetServerSideProps } from "next";
+import AdminLayout from "../components/AdminLayout";
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
   const res = await fetch("http://localhost:3001/category");
   let categoryData = await res.json();

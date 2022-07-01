@@ -1,24 +1,24 @@
-import MenuTable from "../../components/MenuTable";
-import { AppProps } from "next/app";
-import styles from "../../styles/employee.module.css";
-import { GetStaticProps, NextPage } from "next";
+import styles from "../styles/employee.module.css";
+import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
-import Input from "../../components/Input";
-import AdminLayout from "../../components/AdminLayout";
+import Input from "../components/Input";
+import ComboTable from "../components/ComboTable";
+import AdminLayout from "../components/AdminLayout";
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
-  const res = await fetch("http://localhost:3001/menu");
-  let menuData = await res.json();
+  const res = await fetch("http://localhost:3001/combo");
+  let comboData = await res.json();
   // Sending fetched data to the page component via props.
   return {
     props: {
-      menuData,
+      comboData,
     },
   };
 };
+
 type AppProp = {
-  menuData: {
+  comboData: {
     id?: number;
     name?: string;
     account?: string;
@@ -26,10 +26,10 @@ type AppProp = {
     status?: string;
   }[];
 };
-const Menu = ({ menuData }: AppProp) => {
+const Combo = ({ comboData }: AppProp) => {
   const [data, setData] = useState<any[]>([]);
   useEffect(() => {
-    setData(menuData);
+    setData(comboData);
     return () => {};
   }, []);
 
@@ -59,10 +59,10 @@ const Menu = ({ menuData }: AppProp) => {
             +添加员工
           </button>
         </div>
-        {data && <MenuTable data={data} />}
+        {data && <ComboTable data={data} />}
       </div>
     </AdminLayout>
   );
 };
 
-export default Menu;
+export default Combo;

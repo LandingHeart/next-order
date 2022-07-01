@@ -40,16 +40,17 @@
   flex-direction: row;
   display: flex;
   flex: 1;
+  width: 214px;
   margin-top: 30px;
-  border-bottom: 1px solid grey;
+  /* border-bottom: 0.5px solid grey; */
 }
 
 .button {
   background-color: #fec300;
-  width: 240px;
+  width: 214px;
   border: none;
-  padding: 8px 8px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 14px;
   border-radius: 50px;
   margin-top: 30px;
   transition: all ease-in 0.1s;
@@ -57,4 +58,23 @@
 .button:hover {
   color: white;
   cursor: pointer;
+}
+.input {
+  height: 26px;
+  padding-left: 26px;
+  font-size: 16px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: #cecece;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: #fec300;
+}
+.input_err_message {
+  padding-top: 5px;
+  margin: 0px;
+  font-size: small;
+  color: red;
 }
