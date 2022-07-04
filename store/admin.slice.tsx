@@ -18,6 +18,7 @@ type AdminType = {
   name: string;
   password: string;
 };
+
 const initailState: AdminStateType = {
   admin: [
     {
