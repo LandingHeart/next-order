@@ -1,50 +1,78 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
-import axios from "axios";
-import api from "../api";
+
 type AdminStateType = {
   admin: [
     {
-      id: number;
+      id: string;
       name: string;
       account: string;
       phonenumber: string;
+      gender: string;
+      accountnumber: string;
       status: string;
     }
   ];
 };
 
 type AdminType = {
+  id: string;
   name: string;
-  password: string;
+  account: string;
+  phonenumber: string;
+  gender: string;
+  accountnumber: string;
+  status: string;
 };
 
-const initailState: AdminStateType = {
-  admin: [
-    {
-      id: 0,
-      name: "",
-      account: "",
-      phonenumber: "",
-      status: "",
-    },
-  ],
-};
+const initailState = {};
 
 const adminSlice = createSlice({
   name: "admins",
-  initialState: initailState,
+  initialState: {
+    admins: [
+      {
+        id: "",
+        name: "",
+        account: "",
+        phonenumber: "",
+        gender: "",
+        accountnumber: "",
+        status: "",
+      },
+    ],
+    filteredAdmins: [
+      {
+        id: "",
+        name: "",
+        account: "",
+        phonenumber: "",
+        gender: "",
+        accountnumber: "",
+        status: "",
+      },
+    ],
+  },
   reducers: {
     addAdmin: (state: any, action: PayloadAction<AdminStateType>) => {
       return {
         ...state,
-        admin: action.payload,
+        admins: action.payload,
       };
     },
     removeAdmin: (state: any, action: PayloadAction<AdminStateType>) => {
       return {
         ...state,
-        admin: [{}],
+        admins: [{}],
+      };
+    },
+    searchById: (state: any, action: any) => {
+      const filtered = [...state.admins].filter(
+        (employee: any) => employee.id === action.payload
+      );
+      return {
+        ...state,
+        filteredAdmins: filtered,
       };
     },
     getAdmin: (state: any, action: PayloadAction<AdminStateType>) => {
@@ -56,23 +84,25 @@ const adminSlice = createSlice({
     },
   },
 });
-
-export const adminLogin = createAsyncThunk(
-  "admin/login",
-  async ({ name, password }: AdminType) => {
-    try {
-      const res = api.post("/admin/login", {
-        name,
-        password,
-      });
-    } catch (err) {
-      console.log("admin login err ", err);
-    }
-  }
-);
+// export const adminLogin = createAsyncThunk(
+//   "admin/login",
+//   async ({ name, password }: AdminType) => {
+//     try {
+//       const res = api.post("/admin/login", {
+//         name,
+//         password,
+//       });
+//     } catch (err) {
+//       console.log("admin login err ", err);
+//     }
+//   }
+// );
 
 export default adminSlice.reducer;
 
-export const { addAdmin, removeAdmin, getAdmin } = adminSlice.actions;
+export const { addAdmin, removeAdmin, getAdmin, searchById } =
+  adminSlice.actions;
 
-export const selectAdmin = (state: RootState) => state.admin;
+export const selectAdmin = (state: RootState) => state.admins;
+
+export const filterAdmin = (state: any) => state.filteredAdmins;

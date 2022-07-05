@@ -5,12 +5,28 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
-import Button from "./Button";
 import { selectAdmin } from "../store/admin.slice";
 import { useAppSelector } from "../store/hooks";
+import styles from "../styles/button.module.css";
+import { useRouter } from "next/router";
 
+type AdminType = {
+  id: number;
+  name: string;
+  account: string;
+  phonenumber: string;
+  status: string;
+};
 const EmployeeTable = () => {
-  const { admin } = useAppSelector(selectAdmin);
+  const { admins } = useAppSelector(selectAdmin);
+
+  const router = useRouter();
+  const navigateBaseOnId = (id: string) => {
+    router.push({
+      pathname: `/edit/${id}`,
+      query: { id },
+    });
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -25,14 +41,22 @@ const EmployeeTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {admin.map((ele) => (
+          {admins.map((ele) => (
             <TableRow key={ele.id}>
               <TableCell align="left">{ele.name}</TableCell>
               <TableCell align="left">{ele.account}</TableCell>
               <TableCell align="left">{ele.phonenumber}</TableCell>
               <TableCell align="center">{ele.status}</TableCell>
               <TableCell align="center">
-                <Button />
+                <div className={styles.button_container}>
+                  <button
+                    onClick={() => navigateBaseOnId(ele.id)}
+                    className={styles.button_container_btn}
+                  >
+                    编辑
+                  </button>
+                  <button className={styles.button_container_btn}>紧用</button>
+                </div>
               </TableCell>
             </TableRow>
           ))}

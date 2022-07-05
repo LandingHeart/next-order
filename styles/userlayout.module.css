@@ -18,3 +18,9 @@
 .main_content__container {
   background-color: #f3f4f7;
 }
+
+@media screen and (min-width: 700px) {
+  .main_content__container {
+    overflow-x: scroll;
+  }
+}

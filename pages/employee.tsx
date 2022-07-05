@@ -7,24 +7,24 @@ import { useAppDispatch } from "../store/hooks";
 import { addAdmin } from "../store/admin.slice";
 import EmployeeTable from "../components/EmployeeTable";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:3001/employee");
-  let employeeData = await res.json();
-  return {
-    props: {
-      employeeData,
-    },
-  };
-};
-
 type AppProp = {
   employeeData: {
-    id: number;
+    id: string;
     name: string;
     account: string;
     phonenumber: string;
     status: string;
   }[];
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch("http://localhost:3001/employee");
+  let employeeData: AppProp = await res.json();
+  return {
+    props: {
+      employeeData,
+    },
+  };
 };
 const Employee = ({ employeeData }: AppProp) => {
   const dispatch = useAppDispatch();

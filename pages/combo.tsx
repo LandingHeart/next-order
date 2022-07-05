@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 type AppProp = {
   comboData: {
-    id?: number;
+    id?: string;
     name?: string;
     account?: string;
     phonenumber?: string;

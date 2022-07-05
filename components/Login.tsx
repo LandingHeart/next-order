@@ -44,7 +44,6 @@ const Login = () => {
   const validateName = (name: string) => {
     let nameRegex = /^[a-zA-Z0-9]*$/;
     let isValidName = nameRegex.test(name);
-    console.log(name);
     if (!isValidName) {
       setErrMessage("name shouldn't include symbols");
     } else if (name.length < 4) {

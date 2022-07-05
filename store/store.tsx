@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import admin from "./admin.slice";
+import admins from "./admin.slice";
 import menu from "./menu.slice";
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
 const reducer = combineReducers({
-  admin,
+  admins,
   menu,
 });
 
