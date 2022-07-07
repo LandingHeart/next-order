@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import loginBanner from "../public/login-banner.png";
 import logo from "../public/logo-black.png";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { SchemaOf } from "yup";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { addAdmin, selectAdmin, getAdmin } from "../store/admin.slice";
+import { selectAdmin, adminLogin } from "../store/admin.slice";
 import { useRouter } from "next/router";
 import styles from "../styles/login.module.css";
 type UserProp = {
@@ -21,16 +21,30 @@ const Login = () => {
   const [errMessage, setErrMessage] = useState<string>("");
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const isLoggedIn = useAppSelector((state) => state.admins.loggedInAdmin);
+  useEffect(() => {
+    setTimeout(() => {
+      setErrMessage("");
+    }, 10000);
+    return () => {};
+  }, [errMessage]);
   const handleLogin = (e: any) => {
     e.preventDefault();
-    const admin = {
+
+    const adminData = {
       name: name,
       password: password,
     };
-    dispatch(getAdmin);
-    router.push("/admin/employee");
 
-    // dispatch(addAdmin(Object(admin)));
+    let isSucess;
+    console.log(isLoggedIn);
+    //is successful loged in
+    if (isSucess) {
+      dispatch(adminLogin(Object(adminData)));
+      router.push("/admin/employee");
+    } else {
+      setErrMessage("name and password is blank");
+    }
   };
   const handlePassChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -48,6 +62,8 @@ const Login = () => {
       setErrMessage("name shouldn't include symbols");
     } else if (name.length < 4) {
       setErrMessage("name should be longer than 4 character");
+    } else if (name === "") {
+      setErrMessage("name should not be empty");
     } else {
       setErrMessage("");
     }

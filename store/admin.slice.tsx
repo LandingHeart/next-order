@@ -16,13 +16,8 @@ type AdminStateType = {
 };
 
 type AdminType = {
-  id: string;
   name: string;
-  account: string;
-  phonenumber: string;
-  gender: string;
-  accountnumber: string;
-  status: string;
+  password: string;
 };
 
 const initailState = {};
@@ -52,6 +47,13 @@ const adminSlice = createSlice({
         status: "",
       },
     ],
+    loggedInAdmin: [
+      {
+        name: "",
+        password: "",
+      },
+    ],
+    message: "",
   },
   reducers: {
     addAdmin: (state: any, action: PayloadAction<AdminStateType>) => {
@@ -76,10 +78,20 @@ const adminSlice = createSlice({
       };
     },
     getAdmin: (state: any, action: PayloadAction<AdminStateType>) => {
-      //   const res = api.get("/employee");
-      //   console.log("admin list", res);
       return {
         ...state,
+      };
+    },
+    adminLogin: (state: any, action: PayloadAction<AdminType>) => {
+      return {
+        ...state,
+        loggedInAdmin: action.payload,
+      };
+    },
+    isLoginSuccess: (state: any, action: PayloadAction<AdminType>) => {
+      return {
+        ...state,
+        message: "success",
       };
     },
   },
@@ -100,7 +112,7 @@ const adminSlice = createSlice({
 
 export default adminSlice.reducer;
 
-export const { addAdmin, removeAdmin, getAdmin, searchById } =
+export const { addAdmin, removeAdmin, getAdmin, searchById, adminLogin } =
   adminSlice.actions;
 
 export const selectAdmin = (state: RootState) => state.admins;

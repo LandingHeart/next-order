@@ -9,6 +9,7 @@ import { selectAdmin } from "../store/admin.slice";
 import { useAppSelector } from "../store/hooks";
 import styles from "../styles/button.module.css";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 type AdminType = {
   id: number;
