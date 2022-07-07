@@ -1,24 +1,24 @@
 import styles from "../styles/employee.module.css";
 import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
-import Input from "../components/Input";
-import InvoiceTable from "../components/InvoiceTable";
-import AdminLayout from "../components/AdminLayout";
+import Input from "../../components/Input";
+import ComboTable from "../../components/ComboTable";
+import AdminLayout from "../../components/AdminLayout";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
-  const res = await fetch("http://localhost:3001/invoice");
-  let invoiceData = await res.json();
+  const res = await fetch("http://localhost:3001/combo");
+  let comboData = await res.json();
   // Sending fetched data to the page component via props.
   return {
     props: {
-      invoiceData,
+      comboData,
     },
   };
 };
 
 type AppProp = {
-  invoiceData: {
+  comboData: {
     id?: string;
     name?: string;
     account?: string;
@@ -26,10 +26,10 @@ type AppProp = {
     status?: string;
   }[];
 };
-const Invoice = ({ invoiceData }: AppProp) => {
+const Combo = ({ comboData }: AppProp) => {
   const [data, setData] = useState<any[]>([]);
   useEffect(() => {
-    setData(invoiceData);
+    setData(comboData);
     return () => {};
   }, []);
 
@@ -59,10 +59,10 @@ const Invoice = ({ invoiceData }: AppProp) => {
             +添加员工
           </button>
         </div>
-        {data && <InvoiceTable data={data} />}
+        {data && <ComboTable data={data} />}
       </div>
     </AdminLayout>
   );
 };
 
-export default Invoice;
+export default Combo;

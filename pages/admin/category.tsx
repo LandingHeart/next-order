@@ -1,37 +1,35 @@
-import MenuTable from "../components/MenuTable";
 import styles from "../styles/employee.module.css";
+import { useEffect, useState } from "react";
+import Input from "../../components/Input";
+import CategoryTable from "../../components/CategoryTable";
 import { GetServerSideProps } from "next";
-import { useEffect } from "react";
-import Input from "../components/Input";
-import AdminLayout from "../components/AdminLayout";
-import { useAppDispatch } from "../store/hooks";
-import { addMenu } from "../store/menu.slice";
+import AdminLayout from "../../components/AdminLayout";
+
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
-  const res = await fetch("http://localhost:3001/menu");
-  let menuData = await res.json();
+  const res = await fetch("http://localhost:3001/category");
+  let categoryData = await res.json();
   // Sending fetched data to the page component via props.
   return {
     props: {
-      menuData,
+      categoryData,
     },
   };
 };
+
 type AppProp = {
-  menuData: {
-    id?: number;
+  categoryData: {
+    id?: string;
     name?: string;
-    image?: string;
-    category?: string;
-    price?: number;
+    account?: string;
+    phonenumber?: string;
     status?: string;
   }[];
 };
-const Menu = ({ menuData }: AppProp) => {
-  const dispatch = useAppDispatch();
-
+const Category = ({ categoryData }: AppProp) => {
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
-    dispatch(addMenu(Object(menuData)));
+    setData(categoryData);
     return () => {};
   }, []);
 
@@ -61,10 +59,10 @@ const Menu = ({ menuData }: AppProp) => {
             +添加员工
           </button>
         </div>
-        <MenuTable />
+        {data && <CategoryTable data={data} />}
       </div>
     </AdminLayout>
   );
 };
 
-export default Menu;
+export default Category;

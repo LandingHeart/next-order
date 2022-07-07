@@ -1,36 +1,37 @@
+import MenuTable from "../../components/MenuTable";
 import styles from "../styles/employee.module.css";
-import { useEffect } from "react";
-import Input from "../components/Input";
 import { GetServerSideProps } from "next";
-import AdminLayout from "../components/AdminLayout";
-import { useAppDispatch } from "../store/hooks";
-import { addAdmin } from "../store/admin.slice";
-import EmployeeTable from "../components/EmployeeTable";
-
-type AppProp = {
-  employeeData: {
-    id: string;
-    name: string;
-    account: string;
-    phonenumber: string;
-    status: string;
-  }[];
-};
-
+import { useEffect } from "react";
+import Input from "../../components/Input";
+import AdminLayout from "../../components/AdminLayout";
+import { useAppDispatch } from "../../store/hooks";
+import { addMenu } from "../../store/menu.slice";
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:3001/employee");
-  let employeeData: AppProp = await res.json();
+  // Fetching data from jsonplaceholder.
+  const res = await fetch("http://localhost:3001/menu");
+  let menuData = await res.json();
+  // Sending fetched data to the page component via props.
   return {
     props: {
-      employeeData,
+      menuData,
     },
   };
 };
-const Employee = ({ employeeData }: AppProp) => {
+type AppProp = {
+  menuData: {
+    id?: number;
+    name?: string;
+    image?: string;
+    category?: string;
+    price?: number;
+    status?: string;
+  }[];
+};
+const Menu = ({ menuData }: AppProp) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(addAdmin(Object(employeeData)));
+    dispatch(addMenu(Object(menuData)));
     return () => {};
   }, []);
 
@@ -60,10 +61,10 @@ const Employee = ({ employeeData }: AppProp) => {
             +添加员工
           </button>
         </div>
-        <EmployeeTable />
+        <MenuTable />
       </div>
     </AdminLayout>
   );
 };
 
-export default Employee;
+export default Menu;
