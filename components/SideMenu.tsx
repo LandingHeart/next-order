@@ -15,7 +15,7 @@ const SideMenu = () => (
         style={{ color: "#bfcbd9", paddingTop: "20px", marginRight: "3px" }}
       />
 
-      <Link href="/employee">
+      <Link href="/admin/employee">
         <a className={styles.side_nav__listlink}>员工管理</a>
       </Link>
     </li>
@@ -23,7 +23,7 @@ const SideMenu = () => (
       <GridViewIcon
         style={{ color: "#bfcbd9", paddingTop: "20px", marginRight: "3px" }}
       />
-      <Link href="/category">
+      <Link href="/admin/category">
         <a className={styles.side_nav__listlink}>分内管理</a>
       </Link>
     </li>
@@ -31,7 +31,7 @@ const SideMenu = () => (
       <FastfoodIcon
         style={{ color: "#bfcbd9", paddingTop: "20px", marginRight: "3px" }}
       />
-      <Link href="/menu">
+      <Link href="/admin/menu">
         <a className={styles.side_nav__listlink}>菜品管理</a>
       </Link>
     </li>
@@ -39,7 +39,7 @@ const SideMenu = () => (
       <RedeemIcon
         style={{ color: "#bfcbd9", paddingTop: "20px", marginRight: "3px" }}
       />
-      <Link href="/combo">
+      <Link href="/admin/combo">
         <a className={styles.side_nav__listlink}>套餐管理</a>
       </Link>
     </li>
@@ -47,7 +47,7 @@ const SideMenu = () => (
       <DescriptionIcon
         style={{ color: "#bfcbd9", paddingTop: "20px", marginRight: "3px" }}
       />
-      <Link href="/invoice">
+      <Link href="/admin/invoice">
         <a className={styles.side_nav__listlink}>订单明细</a>
       </Link>
     </li>

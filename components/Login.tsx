@@ -28,7 +28,7 @@ const Login = () => {
       password: password,
     };
     dispatch(getAdmin);
-    router.push("/employee");
+    router.push("/admin/employee");
 
     // dispatch(addAdmin(Object(admin)));
   };

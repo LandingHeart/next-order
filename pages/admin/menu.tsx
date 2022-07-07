@@ -1,5 +1,5 @@
 import MenuTable from "../../components/MenuTable";
-import styles from "../styles/employee.module.css";
+import styles from "../../styles/employee.module.css";
 import { GetServerSideProps } from "next";
 import { useEffect } from "react";
 import Input from "../../components/Input";

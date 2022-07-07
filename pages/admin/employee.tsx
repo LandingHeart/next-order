@@ -1,4 +1,4 @@
-import styles from "../styles/employee.module.css";
+import styles from "../../styles/employee.module.css";
 import { useEffect } from "react";
 import Input from "../../components/Input";
 import { GetServerSideProps } from "next";

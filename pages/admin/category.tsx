@@ -1,4 +1,4 @@
-import styles from "../styles/employee.module.css";
+import styles from "../../styles/employee.module.css";
 import { useEffect, useState } from "react";
 import Input from "../../components/Input";
 import CategoryTable from "../../components/CategoryTable";
