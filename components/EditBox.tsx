@@ -5,6 +5,7 @@ const EditBox = (props: any) => {
   const filterAdminById = useAppSelector(
     (state) => state.admins.filteredAdmins
   );
+  console.log(filterAdminById);
   const handleOnSubmit = (event: any) => {
     event.preventDefault();
     console.log("sumbit");

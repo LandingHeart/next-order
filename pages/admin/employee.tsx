@@ -18,7 +18,7 @@ type AppProp = {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:3001/employee");
+  const res = await fetch("http://localhost:8080/api/user");
   let employeeData: AppProp = await res.json();
   return {
     props: {
@@ -30,6 +30,7 @@ const Employee = ({ employeeData }: AppProp) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    console.log(employeeData);
     dispatch(addAdmin(Object(employeeData)));
     return () => {};
   }, []);

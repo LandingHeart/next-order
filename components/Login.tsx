@@ -3,11 +3,9 @@ import loginBanner from "../public/login-banner.png";
 import logo from "../public/logo-black.png";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LockIcon from "@mui/icons-material/Lock";
-import * as Yup from "yup";
-import { SchemaOf } from "yup";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { selectAdmin, adminLogin } from "../store/admin.slice";
+import { adminLogin } from "../store/admin.slice";
 import { useRouter } from "next/router";
 import styles from "../styles/login.module.css";
 type UserProp = {
@@ -37,11 +35,11 @@ const Login = () => {
     };
 
     let isSucess;
-    console.log(isLoggedIn);
+
     //is successful loged in
-    if (isSucess) {
-      dispatch(adminLogin(Object(adminData)));
+    if (isLoggedIn) {
       router.push("/admin/employee");
+      dispatch(adminLogin(Object(adminData)));
     } else {
       setErrMessage("name and password is blank");
     }

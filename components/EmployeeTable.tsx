@@ -22,7 +22,7 @@ const EmployeeTable = () => {
   const { admins } = useAppSelector(selectAdmin);
 
   const router = useRouter();
-  const navigateBaseOnId = (id: string) => {
+  const navigateBaseOnId = (id: number) => {
     router.push({
       pathname: `/edit/${id}`,
       query: { id },

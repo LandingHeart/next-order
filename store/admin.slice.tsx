@@ -4,7 +4,7 @@ import type { RootState } from "./store";
 type AdminStateType = {
   admin: [
     {
-      id: string;
+      id: number;
       name: string;
       account: string;
       phonenumber: string;
@@ -27,7 +27,7 @@ const adminSlice = createSlice({
   initialState: {
     admins: [
       {
-        id: "",
+        id: 0,
         name: "",
         account: "",
         phonenumber: "",
@@ -38,7 +38,7 @@ const adminSlice = createSlice({
     ],
     filteredAdmins: [
       {
-        id: "",
+        id: 0,
         name: "",
         account: "",
         phonenumber: "",
@@ -47,16 +47,12 @@ const adminSlice = createSlice({
         status: "",
       },
     ],
-    loggedInAdmin: [
-      {
-        name: "",
-        password: "",
-      },
-    ],
+    loggedInAdmin: [],
     message: "",
   },
   reducers: {
     addAdmin: (state: any, action: PayloadAction<AdminStateType>) => {
+      console.log("sdf", action.payload);
       return {
         ...state,
         admins: action.payload,
@@ -69,8 +65,9 @@ const adminSlice = createSlice({
       };
     },
     searchById: (state: any, action: any) => {
+      let id = parseInt(action.payload);
       const filtered = [...state.admins].filter(
-        (employee: any) => employee.id === action.payload
+        (employee: any) => employee.id === id
       );
       return {
         ...state,
