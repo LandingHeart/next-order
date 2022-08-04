@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 type AppProp = {
   menuData: {
-    id?: number;
+    id?: string;
     name?: string;
     image?: string;
     category?: string;
