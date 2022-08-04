@@ -4,11 +4,11 @@ import Input from "../../components/Input";
 import CategoryTable from "../../components/CategoryTable";
 import { GetServerSideProps } from "next";
 import AdminLayout from "../../components/AdminLayout";
-
+import api from "../../api";
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
-  const res = await fetch("http://localhost:3001/category");
-  let categoryData = await res.json();
+  const res = await api.get("/category");
+  let categoryData = await res.data;
   // Sending fetched data to the page component via props.
   return {
     props: {

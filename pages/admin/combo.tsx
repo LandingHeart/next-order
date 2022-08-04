@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import Input from "../../components/Input";
 import ComboTable from "../../components/ComboTable";
 import AdminLayout from "../../components/AdminLayout";
+import api from "../../api";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
-  const res = await fetch("http://localhost:3001/combo");
-  let comboData = await res.json();
+  const res = await api.get("/combo");
+  let comboData = await res.data;
   // Sending fetched data to the page component via props.
   return {
     props: {

@@ -6,7 +6,7 @@ import AdminLayout from "../../components/AdminLayout";
 import { useAppDispatch } from "../../store/hooks";
 import { addAdmin } from "../../store/admin.slice";
 import EmployeeTable from "../../components/EmployeeTable";
-
+import api from "../../api";
 type AppProp = {
   employeeData: {
     id: string;
@@ -18,8 +18,8 @@ type AppProp = {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:8080/api/user");
-  let employeeData: AppProp = await res.json();
+  const res = await api.get("/employee");
+  let employeeData: AppProp = await res.data;
   return {
     props: {
       employeeData,
@@ -30,7 +30,6 @@ const Employee = ({ employeeData }: AppProp) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log(employeeData);
     dispatch(addAdmin(Object(employeeData)));
     return () => {};
   }, []);

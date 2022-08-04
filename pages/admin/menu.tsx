@@ -6,10 +6,11 @@ import Input from "../../components/Input";
 import AdminLayout from "../../components/AdminLayout";
 import { useAppDispatch } from "../../store/hooks";
 import { addMenu } from "../../store/menu.slice";
+import api from "../../api";
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching data from jsonplaceholder.
-  const res = await fetch("http://localhost:3001/menu");
-  let menuData = await res.json();
+  const res = await api.get("/menu");
+  let menuData = await res.data;
   // Sending fetched data to the page component via props.
   return {
     props: {
