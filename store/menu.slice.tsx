@@ -18,7 +18,7 @@ type MenuStateType = {
 const initailState: MenuStateType = {
   menu: [
     {
-      id: 0,
+      id: "",
       name: "",
       image: "",
       category: "",
